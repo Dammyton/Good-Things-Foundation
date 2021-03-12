@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+      <TopMenu/>
+      <Navbar/>
     <router-view/>
   </div>
 </template>
+
+<script>
+import Navbar from '@/components/Navbar.vue'
+import TopMenu from '@/components/TopMenu.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Navbar, TopMenu
+  }
+}
+</script>
 
 <style>
 #app {
@@ -17,16 +27,20 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.bg-teal{
+  background: #4b7b92 !important;
+}
+.bg-green{
+  background: #43827c !important;
+}
+.mb-mainnav{
+  display: block ;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+/* Mobie responsiveness */
+@media (max-width: 980px){
+  .mb-mainnav{
+    display: none !important;
+  }
 }
 </style>
